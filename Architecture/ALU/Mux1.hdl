@@ -1,0 +1,11 @@
+CHIP Mux1
+{
+	IN a, b, sel;
+	OUT out;
+
+PARTS:
+Nand(a=sel,b=sel,out=notsel);
+And(a=a[0],b=notsel,out=c);
+And(a=b[0],b=sel,out=d);
+Or(a=c,b=d,out=out[0]);
+}

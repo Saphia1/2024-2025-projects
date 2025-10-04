@@ -1,0 +1,44 @@
+
+CHIP Xor8 {
+
+    IN  a[8], b[8];
+    OUT out[8];
+
+PARTS:
+Nand(a=a[0],b=b[0],out=not);
+Or(a=a[0],b=b[0],out=or);
+And(a=not,b=or,out=out[0]);
+
+Nand(a=a[1],b=b[1],out=not1);
+Or(a=a[1],b=b[1],out=or1);
+And(a=not1,b=or1,out=out[1]);
+
+Nand(a=a[2],b=b[2],out=not2);
+Or(a=a[2],b=b[2],out=or2);
+And(a=not2,b=or2,out=out[2]);
+
+Nand(a=a[3],b=b[3],out=not3);
+Or(a=a[3],b=b[3],out=or3);
+And(a=not3,b=or3,out=out[3]);
+
+Nand(a=a[4],b=b[4],out=not4);
+Or(a=a[4],b=b[4],out=or4);
+And(a=not4,b=or4,out=out[4]);
+
+Nand(a=a[5],b=b[5],out=not5);
+Or(a=a[5],b=b[5],out=or5);
+And(a=not5,b=or5,out=out[5]);
+
+Nand(a=a[6],b=b[6],out=not6);
+Or(a=a[6],b=b[6],out=or6);
+And(a=not6,b=or6,out=out[6]);
+
+Nand(a=a[7],b=b[7],out=not7);
+Or(a=a[7],b=b[7],out=or7);
+And(a=not7,b=or7,out=out[7]);
+
+
+
+
+}
+

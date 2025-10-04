@@ -1,0 +1,20 @@
+List of noises made:
+The bird squarks
+The bird squarks
+The fish "glugs"
+The Lion Roars!
+The mouse squeeks
+The mouse squeeks
+List of movement made:
+The bird flies
+The bird flies
+The bird flies
+The bird flies
+The fish swims
+The fish swims
+The Lion prowls
+The Lion prowls
+The mouse scurries
+The mouse scurries
+The mouse scurries
+The mouse scurries

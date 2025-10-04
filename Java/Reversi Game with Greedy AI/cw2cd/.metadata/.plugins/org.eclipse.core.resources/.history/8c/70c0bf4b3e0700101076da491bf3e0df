@@ -1,0 +1,116 @@
+package reversi;
+
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+//You will need to draw a green square, a black border, and white/black circle with a border around the circle in the opposite colour.
+public class BoardSquareButton extends JButton implements ActionListener
+{
+	Color drawColor; 
+	Color borderColor;
+	int borderSize;
+	int x,y;
+	IModel model;
+	IController controller;
+
+	
+	public BoardSquareButton(int x, int y, int width, int height, IModel model,IController controller, Color color,
+			int borderWidth, Color borderCol )
+	{
+		this.x =x;
+		this.y =y;
+		this.model=model;
+		this.controller=controller;
+		borderSize = borderWidth;
+		drawColor = color;
+		borderColor = Color.black;
+		setMinimumSize( new Dimension(width, height) );
+		setPreferredSize( new Dimension(width, height) );
+	}
+
+	public BoardSquareButton( int width, int height, Color color )
+	{
+		// Call the other constructor with some default values
+		this(-1,-1,width, height,null,null, color, 0, null );
+	}
+
+	public Color getDrawColor()
+	{
+		return drawColor;
+	}
+
+	public void setDrawColor(Color drawColor)
+	{
+		this.drawColor = drawColor;
+	}
+
+	public Color getBorderColor()
+	{
+		return borderColor;
+	}
+
+	public void setBorderColor(Color borderColor)
+	{
+		this.borderColor = borderColor;
+	}
+
+	public int getBorderSize()
+	{
+		return borderSize;
+	}
+
+	public void setBorderSize(int borderSize)
+	{
+		this.borderSize = borderSize;
+	}
+
+	protected void paintComponent(Graphics g)
+	{
+		super.paintComponent(g);
+		//g.setColor(drawColor);
+		//g.fillRect(0, 0, getWidth(), getHeight());
+		
+		//g.setColor(Color.BLACK);
+		//g.fillRect(0, 0, getWidth(), getHeight());
+		
+		if ( borderColor != null )
+		{
+			g.setColor(borderColor);
+			g.fillRect(0, 0, getWidth(), getHeight());
+		}
+		if ( drawColor != null )
+		{
+			g.setColor(drawColor);
+			g.fillRect(borderSize, borderSize, getWidth()-borderSize*2, getHeight()-borderSize*2);
+		}
+		if(model !=null) {
+			int piece= model.getBoardContents(x, y);
+			if (piece == 1) {
+				//Color fill = Color.black;
+				//Color border = Color.white;
+				g.setColor(Color.white);
+				g.drawOval(4, 4, 46, 46);
+				g.setColor(Color.black);
+				g.fillOval(4, 4, 46, 46);
+			}
+			else if (piece == 2) {
+				g.setColor(Color.black);
+				g.drawOval(4,4, 46, 46);
+				g.setColor(Color.white);
+				g.fillOval(4, 4, 46, 46);
+			}
+		}
+		
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		controller.squareSelected(model.getPlayer(), x, y);
+	}
+
+}

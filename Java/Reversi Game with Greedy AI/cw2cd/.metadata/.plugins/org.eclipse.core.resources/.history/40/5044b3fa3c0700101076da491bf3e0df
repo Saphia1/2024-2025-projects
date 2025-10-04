@@ -1,0 +1,174 @@
+package reversi;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
+public class GUIView implements IView {
+	IModel model;
+	IController controller;
+	
+	/**
+	 * Constructor
+	 */
+	public GUIView()
+	{
+	}
+	
+	JLabel message1 = new JLabel();
+	JLabel message2 = new JLabel();
+	JTextArea board1 = new JTextArea();
+	JTextArea board2 = new JTextArea();
+	JFrame frame1 = new JFrame();
+	JFrame frame2 = new JFrame();
+	
+	@Override
+	public void initialise( IModel model, IController controller ){
+		this.model = model;
+		this.controller=controller;
+		
+	
+		frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		frame1.setTitle("Reversi Interface - white player");
+		frame2.setTitle("Reversi Interface - black player");
+		frame1.setLocationRelativeTo(null); // centre on screen
+		frame2.setLocationRelativeTo(null);
+		
+		frame1.getContentPane().setLayout(new GridLayout(1,2));
+		frame2.getContentPane().setLayout(new GridLayout(1,2));
+		
+		board1.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5) );
+		
+		JPanel p1Panel = new JPanel();
+		
+		p1Panel.setBorder( BorderFactory.createLineBorder(Color.LIGHT_GRAY,3) );
+		
+		p1Panel.setLayout( new BorderLayout() );
+		
+		frame1.add(p1Panel);
+		
+		
+		board2.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5) );
+		JPanel p2Panel = new JPanel();
+		p2Panel.setBorder( BorderFactory.createLineBorder(Color.BLACK,3) );
+		p2Panel.setLayout( new BorderLayout() );
+		frame2.getContentPane().add(p2Panel);
+		
+		
+		message1.setFont( new Font( "Arial", Font.BOLD, 20 ));
+		message2.setFont( new Font( "Arial", Font.BOLD, 20 ));
+
+		//board1.setFont( new Font( "Consolas", Font.BOLD, 20 ));
+		//board2.setFont( new Font( "Consolas", Font.BOLD, 20 ));
+		//board1.setPreferredSize(new Dimension(400,330));
+		//board2.setPreferredSize(new Dimension(400,330));
+		
+		// Now we add the 'stuff' for each player to the panel for that player...
+		message1.setText("Initial text goes here");
+		p1Panel.add(message1,BorderLayout.NORTH);
+
+		
+		// AI button
+		JButton butAI1 = new JButton("Greedy AI (play white)");
+		butAI1.addActionListener( new ActionListener() 
+					{ public void actionPerformed(ActionEvent e) { controller.doAutomatedMove(1); } } );
+		
+		//Restart button
+		JButton butRESTART1 = new JButton("Restart");
+		butRESTART1.addActionListener( new ActionListener() 
+					{ public void actionPerformed(ActionEvent e) { controller.doAutomatedMove(1); } } );
+		
+		JPanel buttonPanel1 = new JPanel();
+
+		buttonPanel1.add(butAI1);
+		buttonPanel1.add(butRESTART1);
+		
+		p1Panel.add(buttonPanel1,BorderLayout.SOUTH);
+		
+		//Frame 2
+		message2.setText("Initial text goes here");
+		p2Panel.add(message2,BorderLayout.NORTH);
+		
+		// AI button
+		JButton butAI2 = new JButton("Greedy AI (play black)");
+		butAI2.addActionListener( new ActionListener() 
+					{ public void actionPerformed(ActionEvent e) { controller.doAutomatedMove(2); } } );
+		
+		
+		//Restart button
+		JButton butRESTART2 = new JButton("Restart");
+		butRESTART2.addActionListener( new ActionListener() 
+					{ public void actionPerformed(ActionEvent e) { controller.doAutomatedMove(1); } } );
+				
+		JPanel buttonPanel2 = new JPanel();
+		//buttonPanel2.setLayout( new GridLayout(2, 1) );
+		
+		buttonPanel2.add(butAI2);
+		buttonPanel2.add(butRESTART2);
+		
+		p2Panel.add(buttonPanel2,BorderLayout.SOUTH);
+
+		JPanel p1gridPanel = new JPanel(new GridLayout(8, 8));
+		JPanel p2gridPanel = new JPanel(new GridLayout(8, 8));
+
+	     // Add 64 ColorLabels to grid panel
+		for (int y=0;y<8;y++) {
+	     for (int x = 0; x < 8; x++) {
+	    	 //if (((x ==3) || (x == 4)) && ((y == 3) || (y == 4)))
+	    	 //{
+	    		 
+	    	 //}
+	         BoardSquareButton button = new BoardSquareButton(x, y,50,50,model,controller, Color.green,1,Color.black);
+	         p1gridPanel.add(button);
+	       }
+		}
+		p1Panel.add(p1gridPanel, BorderLayout.CENTER);
+		for (int y=0;y<8;y++) {
+		     for (int x = 0; x < 8; x++) {
+		         BoardSquareButton button = new BoardSquareButton(x, y,50,50,model,controller, Color.green,1,Color.black);
+		         p2gridPanel.add(button);
+		       }
+			}
+	     // Add grid to center
+	     p2Panel.add(p2gridPanel, BorderLayout.CENTER);
+
+	 	frame1.pack();
+		frame2.pack();
+		frame1.setVisible(true);
+		frame2.setVisible(true);   
+
+		
+	}
+	
+	/**
+	 * Refresh the display
+	 */
+	@Override
+	public void refreshView() {
+		
+	}
+	
+	/**
+	 * Display a feedback message to the user
+	 * @param player Which player to tell, 1 (white) or 2 (black).
+	 * @param message The message to display.
+	 */
+	@Override
+	public void feedbackToUser( int player, String message ){
+		
+	}
+
+}

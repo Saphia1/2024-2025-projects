@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <title>Vehicle  Search</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div id="container">
+   <header class="main-component">
+      <h1>Vehicle Search</h1>
+
+      <nav>
+         <ul class="navbar">
+            <li class="links"><a href="peoplesearch.html">People search</a></li>
+          <li class="links"><a>Vehicle search</a></li>
+          <li class="links"><a href="add.html">Add a vehicle</a></li>
+         </ul>
+      </nav>
+   </header>
+   <div id="contents">
+
+      <div id="top-row">
+        <aside id="sidebar" class="main-component">
+          <img class="sidebar-image" src="car.png" alt="car">
+        </aside>
+    
+        <main id="main-content" class="main-component">
+          <form id="pform">
+            <div><label for="rego">Search by driver registration number </label>
+              <input type="text" id="rego"/></div>
+            <div><button type="submit">Submit</button></div>
+          </form>
+    
+          <div id="message"></div>
+          <div id="results"></div>
+        </main>
+      </div>
+    
+      <div id="bottom-row">
+        <aside id="sidebar-small" class="main-component">
+          <img class="sidebar-image" src="car.png" alt="car">
+        </aside>
+    
+        <footer class="main-component">
+          <p>footer</p>
+        </footer>
+      </div>
+    
+    </div>    
+   <script src="vehicle.js" type="module"></script>
+  </div>
+</body>
+
+</html>

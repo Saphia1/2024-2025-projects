@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <title>Add a Vehicle</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+   <div id ="container">
+   <header class="main-component">
+      <h1>Add a vehicle</h1>
+
+      <nav>
+         <ul class="navbar">
+            <li class="links"><a href="peoplesearch.html">People search</a></li>
+          <li class="links"><a href="vehiclesearch.html">Vehicle search</a></li>
+          <li class="links"><a>Add a vehicle</a></li>
+         </ul>
+      </nav>
+   </header>
+
+   <div id="contents">
+
+      <div id="top-row">
+        <aside id="sidebar" class="main-component">
+          <img class="sidebar-image" src="addcar.png" alt="clipboard">
+        </aside>
+    
+        <main id="main-content" class="main-component">
+         <form id="pform">
+            <div><label for="rego">Enter registration number </label>
+               <input type="text" id="rego" /></div>
+            <div><label for="make">Enter vehicle make </label>
+               <input type="text" id="make" /></div>
+            <div><label for="model">Enter vehicle model </label>
+               <input type="text" id="model" /></div>
+            <div><label for="colour">Enter vehicle colour </label>
+               <input type="text" id="colour" /></div>
+            <div><label for="owner">Enter vehicle owner </label>
+               <input type="text" id="owner" /></div>
+            <div><button type="submit" id ="check" disabled>Check owner</button></div>
+         </form>
+         <div id="message-vehicle"></div>
+         <div id="owner-results"></div>
+         <div><button type="submit" id ="new-owner" disabled>New owner</button></div>
+         <form id="addform">
+            <div><label for="name">Enter owner name </label>
+               <input type="text" id="name" /></div>
+            <div><label for="address">Enter owner address </label>
+               <input type="text" id="address" /></div>
+            <div><label for="dob">Enter owner DOB </label>
+               <input type="text" id="dob" /></div>
+            <div><label for="license">Enter owner license number </label>
+               <input type="text" id="license" /></div>
+            <div><label for="expire">Enter owner license expiry date </label>
+               <input type="text" id="expire" /></div>
+            <div><button type="submit" id ="add">Add owner</button></div>
+         </form>
+
+          <div id="message-owner"></div>
+          <form id="addvehicle">
+            <div><button type="submit" id ="add-vehicle">Add vehicle</button></div>
+         </form>
+         </main>
+      </div>
+    
+      <div id="bottom-row">
+        <aside id="sidebar-small" class="main-component">
+          <img class="sidebar-image" src="addcar.png" alt="clipboard">
+        </aside>
+    
+        <footer class="main-component">
+          <p>footer</p>
+        </footer>
+      </div>
+    
+    </div>    
+   <script src="addvehicle.js" type="module"></script>
+ </div>
+</body>
+
+</html>

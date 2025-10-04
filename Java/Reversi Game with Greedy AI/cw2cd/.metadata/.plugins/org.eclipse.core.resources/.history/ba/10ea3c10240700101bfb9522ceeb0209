@@ -1,0 +1,125 @@
+package reversi;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
+public class GUIView implements IView {
+	IModel model;
+	IController controller;
+	
+	/**
+	 * Constructor
+	 */
+	public GUIView()
+	{
+	}
+	
+	JLabel message1 = new JLabel();
+	JLabel message2 = new JLabel();
+	JTextArea board1 = new JTextArea();
+	JTextArea board2 = new JTextArea();
+	JFrame frame1 = new JFrame();
+	JFrame frame2 = new JFrame();
+	
+	@Override
+	public void initialise( IModel model, IController controller ){
+		this.model = model;
+		this.controller=controller;
+		
+		// Create a dummy user interface - you need to do a proper one in your implementation
+		// You will need 2 frames but I put only one into the demo
+		frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		frame1.setTitle("Reversi Interface - white player");
+		frame2.setTitle("Reversi Interface - black player");
+		frame1.setLocationRelativeTo(null); // centre on screen
+		frame2.setLocationRelativeTo(null);
+		
+		frame1.getContentPane().setLayout(new GridLayout(1,2));
+		frame2.getContentPane().setLayout(new GridLayout(1,2));
+		
+		board1.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5) );
+		JPanel p1Panel = new JPanel();
+		p1Panel.setBorder( BorderFactory.createLineBorder(Color.LIGHT_GRAY,3) );
+		p1Panel.setLayout( new BorderLayout() );
+		
+		frame1.add(p1Panel);
+		frame2.add(p1Panel);
+		
+		board2.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5) );
+		JPanel p2Panel = new JPanel();
+		p2Panel.setBorder( BorderFactory.createLineBorder(Color.BLACK,3) );
+		p2Panel.setLayout( new BorderLayout() );
+		frame1.getContentPane().add(p2Panel);
+		frame2.getContentPane().add(p2Panel);
+		
+		message1.setFont( new Font( "Arial", Font.BOLD, 20 ));
+		message2.setFont( new Font( "Arial", Font.BOLD, 20 ));
+
+		board1.setFont( new Font( "Consolas", Font.BOLD, 20 ));
+		board2.setFont( new Font( "Consolas", Font.BOLD, 20 ));
+		board1.setPreferredSize(new Dimension(400,330));
+		board2.setPreferredSize(new Dimension(400,330));
+		
+		// Now we add the 'stuff' for each player to the panel for that player...
+		message1.setText("Initial text goes here");
+		p1Panel.add(message1,BorderLayout.NORTH);
+		board1.setText("XXXXXXXXXXXXXXXXXXXX\nX\r\nX\r\nX\r\nX\r\nX\r\nX\r\nX\r\nX\r\nXXXXXXXXXXXXXXXXXXXX\r\n");
+		p1Panel.add(board1, BorderLayout.CENTER );
+		
+		// AI button
+		JButton butAI1 = new JButton("AI (1)");
+		butAI1.addActionListener( new ActionListener() 
+					{ public void actionPerformed(ActionEvent e) { controller.doAutomatedMove(1); } } );
+		p1Panel.add(butAI1,BorderLayout.SOUTH);
+
+		message2.setText("Initial text goes here");
+		p2Panel.add(message2,BorderLayout.NORTH);
+		board2.setText("XXXXXXXXXXXXXXXXXXXX\nX\r\nX\r\nX\r\nX\r\nX\r\nX\r\nX\r\nX\r\nXXXXXXXXXXXXXXXXXXXX\r\n");
+		p2Panel.add(board2, BorderLayout.CENTER );
+		
+		// AI button
+		JButton butAI2 = new JButton("AI (2)");
+		butAI2.addActionListener( new ActionListener() 
+					{ public void actionPerformed(ActionEvent e) { controller.doAutomatedMove(2); } } );
+		p2Panel.add(butAI2,BorderLayout.SOUTH);
+		
+		frame1.pack();
+		frame2.pack();
+		frame1.setVisible(true);
+		frame2.setVisible(true);
+		
+	}
+	
+	/**
+	 * Refresh the display
+	 */
+	@Override
+	public void refreshView() {
+		
+	}
+	
+	/**
+	 * Display a feedback message to the user
+	 * @param player Which player to tell, 1 (white) or 2 (black).
+	 * @param message The message to display.
+	 */
+	@Override
+	public void feedbackToUser( int player, String message ){
+		
+	}
+
+}

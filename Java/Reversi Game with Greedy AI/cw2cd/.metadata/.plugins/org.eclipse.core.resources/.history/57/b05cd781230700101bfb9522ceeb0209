@@ -1,0 +1,31 @@
+package reversi;
+
+public class GUIView implements IView {
+	IModel model;
+	IController controller;
+
+	@Override
+	public void initialise( IModel model, IController controller ){
+		this.model = model;
+		this.controller=controller;
+	}
+	
+	/**
+	 * Refresh the display
+	 */
+	@Override
+	public void refreshView() {
+		
+	}
+	
+	/**
+	 * Display a feedback message to the user
+	 * @param player Which player to tell, 1 (white) or 2 (black).
+	 * @param message The message to display.
+	 */
+	@Override
+	public void feedbackToUser( int player, String message ){
+		
+	}
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 5 elements from project &apos;CWCD&apos;&#x0D;&#x0A;- Original project: &apos;CWCD&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     BoardSquareButton-Saphia_laptop.java&#x0D;&#x0A;     GUIView-Saphia_laptop.java&#x0D;&#x0A;     ReversiController-Saphia_laptop.java&#x0D;&#x0A;     ReversiMain-Saphia_laptop.java&#x0D;&#x0A;     TestYourController-Saphia_laptop.java" description="Delete elements" element1="src/reversi/GUIView-Saphia_laptop.java" element2="src/reversi/BoardSquareButton-Saphia_laptop.java" element3="src/reversi/ReversiController-Saphia_laptop.java" element4="src/reversi/ReversiMain-Saphia_laptop.java" element5="src/reversi/TestYourController-Saphia_laptop.java" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="5" stamp="1744643898187" subPackages="false" version="1.0"/>
+</session>

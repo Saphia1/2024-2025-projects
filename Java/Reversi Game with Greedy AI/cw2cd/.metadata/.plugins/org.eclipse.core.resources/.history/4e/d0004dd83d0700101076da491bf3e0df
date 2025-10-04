@@ -1,0 +1,34 @@
+package reversi;
+
+public class ReversiController implements IController {
+
+	IModel model;
+	IView view;
+
+	@Override
+	public void initialise(IModel model, IView view)
+	{
+		this.model = model;
+		this.view = view;
+	}
+	
+	public void startup() {
+		
+	}
+	
+	
+	public void update() {
+		
+	}
+	
+	
+	public void squareSelected( int player, int x, int y ) {
+	}
+	
+	
+	
+	public void doAutomatedMove( int player ) {
+		
+	}
+
+}

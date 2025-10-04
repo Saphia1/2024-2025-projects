@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="hasShownOverlayPopupBefore" value="true"/>
+	<section name="java.lang.Class">
+		<item key="replaceBarOpen" value="true"/>
+		<list key="findhistory">
+			<item value=" =  "/>
+			<item value=", "/>
+			<item value="squaresele"/>
+			<item value="y_direction"/>
+			<item value="x_direction"/>
+			<item value="dy"/>
+			<item value="dx"/>
+			<item value="cx"/>
+			<item value="cy"/>
+			<item value="frame2.setloca"/>
+			<item value="p1Panel.add(butAI1"/>
+			<item value="borderlayout"/>
+		</list>
+		<list key="replacehistory">
+			<item value="="/>
+			<item value=","/>
+			<item value="y_offset"/>
+			<item value="x_offset"/>
+			<item value="y_direction"/>
+			<item value="x_direction"/>
+			<item value="current_x_direction"/>
+			<item value="current_y_direction"/>
+		</list>
+	</section>
+</section>
